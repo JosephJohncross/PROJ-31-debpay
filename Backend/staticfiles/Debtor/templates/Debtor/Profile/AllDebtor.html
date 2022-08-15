@@ -1,0 +1,50 @@
+<style>
+img{
+    width:100px;
+    height:100px;
+}
+
+</style>
+<aside>
+    <h4> <a href= "{% url 'debtor_reg' %}">Add Debtor </a></h4>
+    <div>
+<h1> Current Debtors </h1>
+    </div>
+    <div>
+        <h3> Filter </h3>
+<form>
+{{debtor_filter.form}}
+<button type='submit'> Search </button>
+</form>
+</div>
+</aside>
+<hr>
+
+{%if debtor %}
+
+
+    <table>
+        <tr>
+            <th> Student id </th>
+            <th> Student name  </th>
+            <th> Amount </th>
+            <th> Update </th>
+            <th> Delete </th>
+
+        </tr>
+        {%for debtor in debtor %}
+        <tr>
+        <td> {{debtor.student_id}} </td>
+        <td> <a href=" {% url 'each_debtor' debtor.id %} "> {{debtor.student_name}} </a> </td>
+        <td> {{debtor.debt}} </td>
+        {% if request.user == debtor.school %}
+<td>  <a href=" {%url 'debtor_upd' debtor.id %} "> Update debtor</a> </td> 
+    <td>  <a href=" {%url 'debtor_delete' debtor.id %} "> Delete debtor</a> </td> 
+{% endif %}
+        </tr>
+        {%endfor%}
+</table>
+
+{%else%}
+No result found
+{%endif%}

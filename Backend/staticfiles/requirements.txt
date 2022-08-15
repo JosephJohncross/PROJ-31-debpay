@@ -1,0 +1,5 @@
+django 
+shortuuid
+pillow  
+django-filter
+django-allauth
