@@ -390,7 +390,7 @@ h4 {
     }
     
     .form {
-        background-image: url(img/School\ background.svg);
+        /* background-image: url(img/School\ background.svg); */
         background-repeat: no-repeat;
         background-size: 348%;
         padding: 2em 0;
