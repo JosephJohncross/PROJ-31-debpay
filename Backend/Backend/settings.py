@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$07nqm_y^$7#8s688sn4qrm%7h38w^*t_4qqrglo8%zf34_mn9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0"]
 
 
 # Application definition
@@ -170,3 +172,4 @@ SOCIALACCOUNT_LOGIN_ON_GET=True
 LOGIN_REDIRECT_URL = 'land'
 LOGOUT_REDIRECT_URL = 'land'
 LOGIN_REQUIRED_URL = 'Auth_School'
+django_heroku.settings(locals())
